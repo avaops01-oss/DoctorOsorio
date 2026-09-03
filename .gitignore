@@ -1,0 +1,15 @@
+# Windows / macOS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Archivos temporales de pruebas
+_chk-*.html
+_shot-*.html
+_anim-*.html
