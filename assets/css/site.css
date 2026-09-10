@@ -117,6 +117,26 @@ p{margin:0}
   color:rgba(255,255,255,.62)}
 .nav-phone:hover{color:#FFFFFF}
 
+/* Ningún elemento del menú se parte por la mitad: o entra entero o se
+   retira. Sin esto, las páginas con el subtítulo más largo ("Medicina
+   Integrativa") empujaban a "Sobre mí" a una segunda línea. */
+.nav-in > *{flex:0 0 auto}
+.mark b,.mark .wm > span,.nav-links a,.nav-phone,.nav-right .btn{white-space:nowrap}
+
+/* Al estrecharse, primero se cierran los huecos y después se retira el
+   subtítulo, que es decoración; el teléfono y los enlaces aguantan más. */
+@media (max-width:1240px){
+  .nav-in{gap:20px}
+  .nav-links{gap:22px}
+  .nav-right{gap:14px}
+}
+@media (max-width:1150px){
+  .mark .wm > span{display:none}
+}
+@media (max-width:1040px){
+  .nav-phone{display:none}
+}
+
 /* ============================================================
    HERO a sangre
    ============================================================ */

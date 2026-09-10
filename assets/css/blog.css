@@ -143,8 +143,20 @@ a.post-row:hover .post-txt{background:#F4F8F7}
   max-width:38ch}
 .post-txt .when{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--ink-faint); margin-top:26px}
+/* .more viene de site.css en versión mono y en blanco; aquí vive sobre
+   una tarjeta clara, así que sólo le cambio el color y el tamaño. */
 .post-txt .more{display:inline-flex; align-items:center; gap:9px; margin-top:26px;
-  font-size:14.5px; font-weight:500; color:var(--teal-deep)}
+  font-size:11px; color:var(--teal-deep)}
+
+/* El mismo bloque, asomado en la portada */
+.posts.on-home{padding-top:clamp(76px,9vw,124px); padding-bottom:clamp(48px,6vw,80px)}
+.posts.on-home .sect-head{margin-bottom:clamp(28px,3.4vw,40px)}
+.ver-blog{display:inline-flex; align-items:center; gap:10px;
+  margin-top:clamp(24px,3vw,34px); font-family:var(--mono); font-size:11px;
+  font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--teal); transition:color .2s ease}
+.ver-blog:hover{color:var(--teal-deep)}
+.ver-blog:hover .arw{transform:translateX(4px)}
 
 /* ------------------------------------------------------------
    RESPONSIVE
