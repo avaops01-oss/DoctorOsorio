@@ -38,6 +38,29 @@ Está construido para no romper nunca la página:
 Abre `index.html` con doble clic. Para subirlo, copia la carpeta `site/`
 completa a la raíz del hosting. Peso total: 2,2 MB.
 
+## Al cambiar estilos: sube la versión
+
+Los enlaces al CSS y al JS llevan un número de versión:
+
+    <link rel="stylesheet" href="assets/css/site.css?v=2">
+    <link rel="stylesheet" href="assets/css/blog.css?v=2">
+    <script src="assets/js/site.js?v=2" defer></script>
+
+Sin él, quien ya visitó el sitio sigue viendo la hoja de estilos vieja
+guardada en su navegador, aunque el servidor tenga la nueva. El HTML sí
+se actualiza, así que el resultado es una página nueva con estilos
+viejos: descuadrada.
+
+**Cada vez que se toque `site.css`, `blog.css` o `site.js`, sube el
+número en las ocho páginas.** De `?v=2` a `?v=3`, y así. Para el
+navegador es una dirección distinta, y no le queda más remedio que
+traerla de nuevo. Las imágenes no lo necesitan: cuando cambian, se
+suben con otro nombre.
+
+En Git Bash, desde `site/`:
+
+    sed -i 's/?v=2/?v=3/g' *.html
+
 ## Pendiente antes de publicar
 
 1. **Revisión clínica.** Las descripciones de tratamientos de las tres
