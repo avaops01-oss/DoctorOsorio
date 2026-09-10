@@ -15,7 +15,8 @@
   var selector = [
     '.sect-head', '.tile', '.hist', '.sv',
     '.dark-card', '.form-card', '.tray-card', '.cta-in',
-    '.split-txt', '.split-img'
+    '.split-txt', '.split-img',
+    '.by', '.post-shot', '.post-txt'
   ].join(',');
 
   var items;

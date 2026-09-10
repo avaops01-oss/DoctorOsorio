@@ -1,0 +1,177 @@
+/* ============================================================
+   Dr. Andrés Felipe Osorio — blog
+   Se carga sólo en blog.html y en las notas. Hereda todos los
+   tokens de site.css; aquí sólo vive lo propio de la lectura.
+   ============================================================ */
+
+:root{
+  --ink-read:#3A4948;   /* cuerpo del artículo: 9.4:1 sobre blanco */
+  --measure:41rem;      /* ~68 caracteres por línea */
+}
+
+/* ------------------------------------------------------------
+   CABECERA DE LA NOTA
+   Reutiliza .hero-band; sólo cambia el recorte de la foto,
+   porque las imágenes del blog son cuadradas.
+   ------------------------------------------------------------ */
+.hero-band.post-head .art{aspect-ratio:1/1}
+.hero-band.post-head h1{font-size:clamp(33px,4.4vw,58px); line-height:1.04}
+.hero-band.post-head .lede{max-width:34ch}
+
+.kicker{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.kicker .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#0B2B27; background:var(--mint);
+  padding:6px 13px; border-radius:var(--r-pill)}
+
+/* ------------------------------------------------------------
+   CUERPO DE LA NOTA
+   Una sola tarjeta blanca sobre el campo de menta, igual que
+   el resto del sitio. Dentro, una columna de lectura estrecha.
+   ------------------------------------------------------------ */
+.post{padding-block:clamp(14px,1.8vw,22px)}
+.post-card{--pc:clamp(26px,5vw,72px);
+  max-width:920px; margin:0 auto; background:var(--surface);
+  border-radius:var(--r-card); padding:var(--pc); overflow:hidden}
+.post-body{max-width:var(--measure); margin-inline:auto}
+
+.post-body p{color:var(--ink-read); font-size:17.5px; line-height:1.75; margin-top:22px}
+.post-body p:first-child{margin-top:0}
+.post-body strong{color:var(--ink); font-weight:500}
+.post-body em{font-style:italic}
+
+.post-body .lead{font-size:20px; line-height:1.6; color:var(--ink)}
+
+.post-body h2{font-size:clamp(25px,2.9vw,35px); font-weight:500; letter-spacing:-.026em;
+  line-height:1.12; margin-top:54px}
+.post-body .num{font-family:var(--mono); font-size:11px; font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--teal); margin-top:60px}
+.post-body .num + h2{margin-top:12px}
+
+/* la pregunta que sostiene cada tramo del texto */
+.post-body .ask-q{font-family:var(--display); font-size:clamp(20px,2.2vw,25px);
+  font-weight:500; letter-spacing:-.018em; line-height:1.35; color:var(--teal-deep);
+  border-left:2px solid var(--mint); padding-left:24px; margin-top:36px}
+
+.rule{border:0; border-top:1px solid var(--line-soft); margin:56px 0 0}
+
+/* ------------------------------------------------------------
+   IMÁGENES
+   Salen del ancho de lectura hasta el borde de la tarjeta.
+   ------------------------------------------------------------ */
+.fig{margin:52px 0 44px}
+.fig-out{margin-inline:calc(var(--pc) * -1)}
+.fig .shot{position:relative; overflow:hidden; background:var(--mist)}
+.fig-out .shot{border-radius:0}
+.fig .shot img{width:100%; height:100%; object-fit:cover;
+  filter:saturate(.84) contrast(1.03) brightness(1.01)}
+.fig figcaption{font-family:var(--mono); font-size:10.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-faint); margin-top:14px;
+  max-width:var(--measure); margin-inline:auto}
+.fig-out figcaption{padding-inline:var(--pc)}
+.fig .shot.r43{aspect-ratio:4/3}
+
+/* la infografía no se recorta nunca: se muestra completa */
+.fig-info{max-width:var(--measure); margin-inline:auto}
+.fig-info .shot{border-radius:20px; aspect-ratio:1/1}
+.fig-info .shot img{filter:none}
+
+/* ------------------------------------------------------------
+   EL MURO
+   Lo que sigue no se envía al navegador: las líneas borrosas
+   son decoración, no texto recortado.
+   ------------------------------------------------------------ */
+.gate{position:relative; margin-top:26px}
+.gate-blur{position:relative; height:230px; overflow:hidden;
+  filter:blur(5px); opacity:.5; user-select:none}
+.gate-blur span{display:block; height:11px; border-radius:6px;
+  background:var(--ink-read); margin-bottom:17px}
+.gate-blur span:nth-child(3n){width:96%}
+.gate-blur span:nth-child(3n+1){width:88%}
+.gate-blur span:nth-child(3n+2){width:79%}
+.gate-blur::after{content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.72) 52%, var(--surface) 100%)}
+
+.gate-card{margin-top:-56px; position:relative; z-index:2;
+  background:var(--teal-deep); color:#FFFFFF; border-radius:var(--r-card);
+  padding:clamp(30px,4.4vw,52px); text-align:center; overflow:hidden}
+.gate-card::before{content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(58% 76% at 50% 0%, rgba(95,217,198,.22) 0%, rgba(95,217,198,0) 70%)}
+.gate-card > *{position:relative; z-index:2}
+.gate-card .eyebrow{color:#7FBDB4}
+.gate-card h3{font-family:var(--display); font-size:clamp(23px,2.7vw,32px);
+  font-weight:500; letter-spacing:-.026em; line-height:1.14; color:#FFFFFF; margin-top:16px}
+.gate-card p{color:#B9CBC8; font-size:16px; line-height:1.65;
+  margin-top:16px; max-width:42ch; margin-inline:auto}
+.gate-card .btn{margin-top:30px}
+.gate-card .fine{font-family:var(--mono); font-size:10.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:#7E9995; margin-top:20px}
+
+/* ------------------------------------------------------------
+   FIRMA
+   ------------------------------------------------------------ */
+.by{max-width:920px; margin:clamp(14px,1.8vw,22px) auto 0;
+  background:var(--mist); border-radius:var(--r-card);
+  padding:clamp(26px,3.6vw,44px); display:flex; align-items:center;
+  gap:clamp(20px,3vw,32px)}
+.by-img{flex:0 0 78px; width:78px; height:78px; border-radius:50%; overflow:hidden}
+.by-img .ph{position:absolute; inset:0}
+.by-img{position:relative}
+.by .k{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--teal)}
+.by b{display:block; font-family:var(--display); font-size:20px; font-weight:600;
+  letter-spacing:-.018em; margin-top:8px}
+.by p{color:var(--ink-soft); font-size:15.5px; line-height:1.6; margin-top:8px}
+
+/* ------------------------------------------------------------
+   ÍNDICE DEL BLOG
+   ------------------------------------------------------------ */
+.posts{padding-block:clamp(14px,1.8vw,22px)}
+.post-row{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:clamp(16px,2vw,26px); align-items:stretch; max-width:var(--w);
+  margin:0 auto; padding-inline:var(--pad)}
+.post-row + .post-row{margin-top:clamp(16px,2vw,26px)}
+.post-shot{position:relative; border-radius:var(--r-card); overflow:hidden;
+  min-height:clamp(320px,38vw,460px)}
+.post-txt{background:var(--surface); border-radius:var(--r-card);
+  padding:clamp(30px,4.2vw,60px); display:flex; flex-direction:column;
+  justify-content:center; transition:background-color .25s ease}
+a.post-row:hover .post-txt{background:#F4F8F7}
+.post-txt h2{font-size:clamp(26px,3.2vw,42px); font-weight:500;
+  letter-spacing:-.03em; line-height:1.08; margin-top:20px}
+.post-txt .sum{color:var(--ink-soft); font-size:16.5px; line-height:1.65; margin-top:20px;
+  max-width:38ch}
+.post-txt .when{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-faint); margin-top:26px}
+.post-txt .more{display:inline-flex; align-items:center; gap:9px; margin-top:26px;
+  font-size:14.5px; font-weight:500; color:var(--teal-deep)}
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width:940px){
+  .hero-band.post-head .art{aspect-ratio:16/12}
+  .post-row{grid-template-columns:1fr; gap:20px}
+  .post-shot{min-height:0; aspect-ratio:16/11}
+  .by{flex-direction:column; text-align:center}
+}
+@media (max-width:560px){
+  .post-body p{font-size:17px}
+  .gate-blur{height:190px}
+}
+
+/* ------------------------------------------------------------
+   ANIMACIÓN
+   Mismo criterio que el resto: el estado oculto vive bajo .anim.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion:no-preference){
+  .anim .by,.anim .post-shot,.anim .post-txt{
+    opacity:0; transform:translateY(14px);
+    transition:opacity .55s cubic-bezier(.22,.61,.36,1),
+               transform .55s cubic-bezier(.22,.61,.36,1);
+    transition-delay:calc(var(--d,0) * 70ms)}
+  .anim .is-in{opacity:1 !important; transform:none !important}
+  .post-shot .ph{transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+  a.post-row:hover .post-shot .ph{transform:scale(1.045)}
+  a.post-row:hover .more .arw{transform:translateX(4px)}
+}
