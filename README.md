@@ -10,13 +10,28 @@ site/
   medicina-integrativa.html
   medicina-estetica.html
   terapia-capilar.html
-  tratamientos-personalizados.html  Página breve, centrada en el formulario
-  sobre-mi.html
+  blog.html                         Índice del blog (carrusel)
+  blog-drips-vs-medicina-integrativa.html   Primer artículo
   assets/
-    css/site.css                    Hoja de estilos única de todo el sitio
-    js/site.js                      Animaciones de entrada
+    css/carousel.css                Carrusel del blog (index y blog)
+    css/article.css                 Estilos de los artículos
+    js/carousel.js                  Carrusel del blog
     img/                            Fotografía y logo
 ```
+
+Cada página lleva sus estilos dentro, salvo el carrusel y los artículos.
+
+**Páginas retiradas.** `sobre-mi.html` y `tratamientos-personalizados.html`
+se quitaron porque seguían en el diseño anterior (verde) y no encajaban con
+el nuevo. Siguen guardadas en el historial de Git: están completas en el
+commit `7bbdfa2`. Para recuperarlas: `git show 7bbdfa2:sobre-mi.html`.
+Mientras no existan, los botones «Agenda tu cita» de la franja final llaman
+al teléfono y las tarjetas de «Tratamientos Personalizados» llevan a la
+sección de contacto de su página.
+
+`assets/css/site.css`, `assets/css/blog.css` y `assets/js/site.js` ya no los
+usa ninguna página; son del diseño anterior y se conservan por si se
+reconstruyen esas dos páginas.
 
 ## Animaciones
 
@@ -75,13 +90,13 @@ En Git Bash, desde `site/`:
    seis páginas. El sitio anterior tenía `info@example.com`.
 3. **Registro médico.** Aparece como `RM ······` en las páginas de servicio
    y en «Sobre mí».
-4. **Formación académica.** El bloque «Formación y trayectoria» de
+4. **(Al reconstruir «Sobre mí»)** **Formación académica.** El bloque «Formación y trayectoria» de
    `sobre-mi.html` tiene tres casillas marcadas en naranja.
-5. **El formulario no envía.** `tratamientos-personalizados.html` tiene un
+5. **(Al reconstruir «Tratamientos Personalizados»)** **El formulario no envía.** La versión anterior tenía un
    formulario maquetado y validable, pero su `action` está vacío. Hay que
    conectarlo a un servicio de correo (Formspree, Basin, o el PHP del
    hosting) para que llegue algo.
-6. **Plazo de respuesta.** La página promete «menos de 48 horas hábiles».
+6. **(Ídem)** **Plazo de respuesta.** La versión anterior prometía «menos de 48 horas hábiles».
    Es un compromiso medible: confírmalo o cámbialo.
 
 ## Logo
