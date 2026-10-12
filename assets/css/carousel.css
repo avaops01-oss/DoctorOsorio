@@ -1,0 +1,64 @@
+/* ============================================================
+   Carrusel de artículos del blog. Lo usan index.html y blog.html.
+   Hereda los colores y medidas de cada página (--ink, --white,
+   --radius-lg, --brand-cyan, --font-mono...), que son los mismos.
+   ============================================================ */
+.carousel { --n: 3; --i: 0; }
+.carousel .slide { background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 46%) minmax(0, 1fr); min-height: 460px; }
+.carousel .slide + .slide { margin-top: 24px; }                    /* sin JS: se apilan, todas visibles */
+.slide-img { position: relative; background: #0c131b; min-height: 300px; }
+.slide-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide-txt { padding: 48px 52px; display: flex; flex-direction: column; justify-content: center; }
+.slide-txt h3 { font-size: 32px; line-height: 1.18; margin-bottom: 22px; max-width: 400px; }
+.slide-txt p:not(.eyebrow) { font-size: 14.5px; line-height: 1.75; margin: 0 0 24px; max-width: 390px; }
+.slide-txt .more { color: var(--ink); }
+.slide-txt .soon { align-self: flex-start; padding: 9px 16px; border: 1px solid rgba(37,83,127,.35); border-radius: 999px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--brand-navy); }
+
+/* con JS: una sola diapositiva visible, todas en la misma celda para que la altura no salte */
+.carousel.is-ready .carousel-stage { position: relative; padding: 0 52px; }
+.carousel.is-ready .carousel-stage::before {                      /* la placa de atrás, más ancha y más baja */
+  content: ""; position: absolute; inset: 24px 0; background: rgba(255,255,255,.72); border-radius: var(--radius-lg); }
+.carousel.is-ready .slides { position: relative; display: grid; }
+.carousel.is-ready .slide { grid-area: 1 / 1; margin-top: 0; box-shadow: 0 30px 60px rgba(15,29,45,.12);
+  transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+.carousel.is-ready .slide:not(.is-active) { opacity: 0; visibility: hidden; pointer-events: none; }
+.carousel.is-ready .slide.is-after  { transform: translateX(28px); }
+.carousel.is-ready .slide.is-before { transform: translateX(-28px); }
+.carousel.is-ready .slide.is-active { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+
+.carousel-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 28px; padding: 0 52px; }
+.carousel-bar[hidden] { display: none; }
+.car-btns { display: flex; gap: 10px; }
+.car-btn { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(18,32,51,.28);
+  border-radius: 12px; background: transparent; color: var(--ink); cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+.car-btn:hover { background: var(--white); border-color: var(--ink); }
+.car-btn:focus-visible { outline: 2px solid var(--brand-cyan); outline-offset: 3px; }
+.car-count { margin: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--text); }
+.car-progress { position: relative; width: 170px; height: 2px; background: rgba(18,32,51,.16); }
+.car-progress i { position: absolute; left: 0; top: 0; height: 100%; width: calc(100% / var(--n)); background: var(--ink);
+  transform: translateX(calc(var(--i) * 100%)); transition: transform .45s ease; }
+
+@media (max-width: 860px) {
+  .carousel .slide { grid-template-columns: 1fr; min-height: 0; }
+  .slide-img { min-height: 0; aspect-ratio: 16 / 10; }
+  .slide-txt { padding: 32px 28px 36px; }
+  .slide-txt h3 { font-size: 26px; max-width: none; }
+  .slide-txt p:not(.eyebrow) { max-width: none; }
+  .carousel.is-ready .carousel-stage { padding: 0 14px; }
+  .carousel.is-ready .carousel-stage::before { inset: 16px 0; }
+  .carousel-bar { padding: 0 14px; }
+}
+@media (max-width: 560px) {
+  .car-progress { display: none; }
+}
+
+
+/* mientras carga el script se muestra sólo la primera diapositiva: así la
+   página no da un salto al colapsar las tres apiladas. Sin JS (clase .js
+   ausente) se ven todas, que es el comportamiento de respaldo. */
+.js .carousel:not(.is-ready) .slide + .slide { display: none; }
+
+/* en la página del blog el carrusel va solo, sin título encima */
+.posts .carousel { padding-top: 14px; padding-bottom: 8px; }

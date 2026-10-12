@@ -459,6 +459,8 @@
   }
   @media (min-width: 821px) and (max-width: 1680px) { .blog-photo-hero .hero-media { left: 57%; } }
 </style>
+<link rel="stylesheet" href="assets/css/carousel.css?v=2">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="hero-light banner-navy">
 
@@ -500,26 +502,47 @@
   <!-- ================= POSTS ================= -->
   <section class="posts">
     <div class="container">
-      <div class="blog">
-        <div class="blog-img"><img src="assets/img/r-41091b83.jpg" alt="Dr. Andrés Osorio revisando una bolsa de suero" style="object-position: 60% 40%"></div>
-        <article class="blog-card">
-          <p class="eyebrow">Medicina integrativa</p>
-          <h3>Drips vs. medicina integrativa: ¿qué hay detrás de un suero?</h3>
-          <p>Un mismo suero puede ser un tratamiento bien indicado o una decisión tomada sin evaluar. La diferencia empieza mucho antes de colocar la vía.</p>
-          <div class="meta">10 Sep 2026 · 8 min</div>
-          <a class="more" href="blog-drips-vs-medicina-integrativa.html">Leer el artículo →</a>
+      <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Artículos del blog">
+        <div class="carousel-stage">
+          <div class="slides" aria-live="polite">
+        <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+          <div class="slide-img"><img src="assets/img/r-41091b83.jpg" alt="Dr. Andrés Osorio revisando una bolsa de suero" style="object-position: 60% 40%" loading="lazy"></div>
+          <div class="slide-txt">
+            <p class="eyebrow">Medicina integrativa</p>
+            <h3>Drips vs. medicina integrativa: ¿qué hay detrás de un suero?</h3>
+            <p>Un mismo suero puede ser un tratamiento bien indicado o una decisión tomada sin evaluar. La diferencia empieza mucho antes de colocar la vía.</p>
+            <div class="meta">10 Sep 2026 · 8 min</div>
+            <a class="more" href="blog-drips-vs-medicina-integrativa.html">Leer el artículo →</a>
+          </div>
         </article>
-      </div>
-      <div class="blog">
-        <!-- Capilar article (brother's request). AI image of a man doubting his hair-loss shampoo. File: images/blog-shampoo.jpg -->
-        <div class="blog-img"><img src="assets/img/r-745e290f.jpg" alt="Hombre mirando con duda su shampoo anticaída" style="object-position: 55% center"></div>
-        <article class="blog-card">
-          <p class="eyebrow">Terapia capilar</p>
-          <h3>¿Por qué el shampoo anticaída no te está funcionando?</h3>
-          <p>Un mismo producto puede ayudarle a una persona y no hacer nada por otra. La diferencia empieza por entender qué tipo de caída tienes antes de elegir un tratamiento.</p>
-          <!-- Date and reading time are placeholders until the article is written -->
-          <div class="meta">Próximamente</div>
+        <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+          <div class="slide-img"><img src="assets/img/r-745e290f.jpg" alt="Hombre mirando con duda su shampoo anticaída" style="object-position: 55% center" loading="lazy"></div>
+          <div class="slide-txt">
+            <p class="eyebrow">Terapia capilar</p>
+            <h3>¿Por qué el shampoo anticaída no te está funcionando?</h3>
+            <p>Un mismo producto puede ayudarle a una persona y no hacer nada por otra. La diferencia empieza por entender qué tipo de caída tienes antes de elegir un tratamiento.</p>
+            <span class="soon">Próximamente</span>
+          </div>
         </article>
+        <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+          <div class="slide-img"><img src="assets/img/blog-estetica.jpg" alt="Paciente recibiendo un tratamiento estético facial" style="object-position: center 40%" loading="lazy"></div>
+          <div class="slide-txt">
+            <p class="eyebrow">Medicina estética</p>
+            <h3>Lo que debería pasar antes de tu primer procedimiento estético</h3>
+            <p>Elegir un procedimiento por lo que se ve en redes no es lo mismo que elegirlo después de una valoración. La diferencia empieza en entender qué quieres lograr y qué necesita tu piel.</p>
+            <span class="soon">Próximamente</span>
+          </div>
+        </article>
+          </div>
+        </div>
+        <div class="carousel-bar" hidden>
+          <div class="car-btns">
+            <button class="car-btn" type="button" data-dir="-1" aria-label="Artículo anterior"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="car-btn" type="button" data-dir="1" aria-label="Artículo siguiente"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <p class="car-count">Artículo <span class="car-i">1</span> de 3</p>
+          <div class="car-progress" aria-hidden="true"><i></i></div>
+        </div>
       </div>
     </div>
   </section>
@@ -564,5 +587,6 @@
   </div>
 </footer>
 
+<script src="assets/js/carousel.js?v=2"></script>
 </body>
 </html>

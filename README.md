@@ -46,6 +46,10 @@ Los enlaces al CSS y al JS llevan un número de versión:
     <link rel="stylesheet" href="assets/css/blog.css?v=2">
     <script src="assets/js/site.js?v=2" defer></script>
 
+Igual en index.html y blog.html con el carrusel del blog
+(`assets/css/carousel.css?v=2` y `assets/js/carousel.js?v=2`). Las demás
+páginas llevan sus estilos dentro y no necesitan versión.
+
 Sin él, quien ya visitó el sitio sigue viendo la hoja de estilos vieja
 guardada en su navegador, aunque el servidor tenga la nueva. El HTML sí
 se actualiza, así que el resultado es una página nueva con estilos
