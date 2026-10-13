@@ -10,6 +10,7 @@ site/
   medicina-integrativa.html
   medicina-estetica.html
   terapia-capilar.html
+  tratamientos-personalizados.html          Formulario de contacto (abre WhatsApp)
   blog.html                         Índice del blog (carrusel)
   blog-drips-vs-medicina-integrativa.html   Artículo: sueroterapia vs medicina integrativa
   blog-shampoo-anticaida.html               Artículo: shampoo anticaída
@@ -23,13 +24,16 @@ site/
 
 Cada página lleva sus estilos dentro, salvo el carrusel y los artículos.
 
-**Páginas retiradas.** `sobre-mi.html` y `tratamientos-personalizados.html`
-se quitaron porque seguían en el diseño anterior (verde) y no encajaban con
-el nuevo. Siguen guardadas en el historial de Git: están completas en el
-commit `7bbdfa2`. Para recuperarlas: `git show 7bbdfa2:sobre-mi.html`.
-Mientras no existan, los botones «Agenda tu cita» de la franja final llaman
-al teléfono y las tarjetas de «Tratamientos Personalizados» llevan a la
-sección de contacto de su página.
+**Página retirada.** `sobre-mi.html` se quitó porque seguía en el diseño anterior
+(verde). Sigue completa en el historial de Git, en el commit `7bbdfa2`; para
+recuperarla: `git show 7bbdfa2:sobre-mi.html`. `tratamientos-personalizados.html`
+se rehízo en el diseño nuevo.
+
+**El formulario de contacto no envía correo.** Arma el mensaje y abre WhatsApp
+con él escrito (`wa.me/573015114683`); sin JavaScript manda sólo el texto del
+mensaje. Funciona mientras ese número tenga WhatsApp. Para que llegue por
+correo hace falta una dirección real y un servicio (Formspree, Basin o el PHP
+del hosting).
 
 `assets/css/site.css`, `assets/css/blog.css` y `assets/js/site.js` ya no los
 usa ninguna página; son del diseño anterior y se conservan por si se
