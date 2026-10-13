@@ -11,7 +11,9 @@ site/
   medicina-estetica.html
   terapia-capilar.html
   blog.html                         Índice del blog (carrusel)
-  blog-drips-vs-medicina-integrativa.html   Primer artículo
+  blog-drips-vs-medicina-integrativa.html   Artículo: sueroterapia vs medicina integrativa
+  blog-shampoo-anticaida.html               Artículo: shampoo anticaída
+  blog-elegir-procedimiento-estetico.html   Artículo: cómo elegir un procedimiento estético
   assets/
     css/carousel.css                Carrusel del blog (index y blog)
     css/article.css                 Estilos de los artículos

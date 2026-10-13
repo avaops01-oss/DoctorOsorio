@@ -205,16 +205,19 @@
   /* Wide still life across the top of the card, text below */
   .service .bg--top img { height: 58%; }
   .service .bg--top::after { background: linear-gradient(180deg, rgba(17,38,60,0) 0%, rgba(17,38,60,0) 38%, rgba(17,38,60,.85) 56%, #11263c 66%); }
-  /* Vertical (portrait) photo shown whole: photo on the right, text column on the left */
-  .service--portrait { background: #11263c; }
-  .service .bg--portrait { left: auto; width: 56%; }
-  .service .bg--portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .service .bg--portrait::after {
-    background: linear-gradient(90deg, #11263c 0%, rgba(17,38,60,.5) 16%, rgba(17,38,60,0) 34%),
-                linear-gradient(180deg, rgba(17,38,60,0) 70%, rgba(17,38,60,.6) 100%);
-  }
-  .service.service--portrait h3, .service.service--portrait p, .service.service--portrait .chips { max-width: 46%; }
+  /* Tarjetas de servicio: la foto ocupa la parte de arriba y se funde hacia abajo con el
+     azul de la tarjeta; el texto va debajo, a todo el ancho. Igual en todos los tamaños. */
+  .service--portrait { background: #11263c; min-height: 680px; }
+  .service .bg--portrait { left: 0; width: 100%; height: 64%; bottom: auto; }
+  .service .bg--portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .service .bg--portrait::after { background: linear-gradient(180deg, rgba(17,38,60,0) 42%, rgba(17,38,60,.82) 78%, #11263c 100%); }
+  .service.service--portrait h3, .service.service--portrait p, .service.service--portrait .chips { max-width: none; }
   .service.service--portrait h3 { font-size: 26px; }
+  .service.service--portrait .chips { min-height: 68px; align-content: flex-start; }
+  .service.service--portrait p { min-height: 3.2em; }                 /* reserva dos líneas: los títulos vecinos quedan alineados */
+  @media (min-width: 821px) and (max-width: 1040px) {
+    .service.service--portrait h3 { min-height: 2.3em; }               /* dos columnas estrechas: los títulos pueden ocupar dos líneas */
+  }
   /* Full-height card image (for clean photos without baked-in text) */
   .service .bg--full img { height: 100%; object-position: center 30%; }
   .service .bg--full::after {
@@ -369,10 +372,6 @@
     .service .bg--top::after { background: linear-gradient(180deg, rgba(17,38,60,0) 0%, rgba(17,38,60,0) 30%, rgba(17,38,60,.9) 42%, #11263c 48%); }
     /* Portrait cards on mobile: photo on top, text below */
     .service--portrait { min-height: 700px; }
-    .service .bg--portrait { width: 100%; left: 0; height: 64%; bottom: auto; }
-    .service .bg--portrait img { object-position: center 30%; }
-    .service .bg--portrait::after { background: linear-gradient(180deg, rgba(17,38,60,0) 55%, #11263c 100%); }
-    .service.service--portrait h3, .service.service--portrait p, .service.service--portrait .chips { max-width: none; }
     .nav .btn { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -489,7 +488,7 @@
 
         <!-- Card 01 | REVIEW #3: real footage from Dr. Osorio's Instagram. Vertical frame shown whole on the right. -->
         <article class="service service--portrait">
-          <div class="bg bg--portrait"><img src="assets/img/card-capilar.jpg" alt="Aplicación de un tratamiento capilar con microinyecciones" style="object-position: 70% center"></div>
+          <div class="bg bg--portrait"><img src="assets/img/r-04eb906f.jpg" alt="Dr. Andrés Osorio durante un tratamiento capilar" style="object-position: 50% 32%"></div>
           <div class="num">01</div>
           <h3>Terapia Capilar</h3>
           <p>No todas las caídas son iguales. Primero evaluamos cuál es la tuya.</p>
@@ -500,7 +499,7 @@
         <!-- Card 02 | REVIEW #3 DONE: real footage of Dr. Osorio from Instagram (no needles). Swap for a sharper frame from the original video if available. -->
         <article class="service service--portrait">
           <!-- Vertical video frame shown whole on the right so the equipment stays visible -->
-          <div class="bg bg--portrait"><img src="assets/img/card-estetica.jpg" alt="Paciente recibiendo un tratamiento estético facial" style="object-position: 88% center"></div>
+          <div class="bg bg--portrait"><img src="assets/img/r-ab7ee1df.jpg" alt="Dr. Andrés Osorio durante un tratamiento estético" style="object-position: 50% 14%"></div>
           <div class="num">02</div>
           <h3>Medicina Estética Avanzada</h3>
           <p>Regeneración con criterio médico, no cosmético.</p>
@@ -509,7 +508,7 @@
         </article>
         <!-- Card 03: same IV therapy image as the Integrativa hero (brother's request). File: images/medicina-integrativa.jpg -->
         <article class="service service--portrait">
-          <div class="bg bg--portrait"><img src="assets/img/card-integrativa.jpg" alt="Dr. Andrés Felipe Osorio atendiendo a una paciente en consulta" style="object-position: center 30%"></div>
+          <div class="bg bg--portrait"><img src="assets/img/r-5ca32f5f.jpg" alt="Paciente recibiendo sueroterapia en una clínica de bienestar" style="object-position: 50% 28%"></div>
           <div class="num">03</div>
           <h3>Medicina Integrativa</h3>
           <p>Energía, digestión, hormonas y sueño. Buscamos la causa, no el síntoma.</p>
@@ -519,7 +518,7 @@
 
         <!-- Card 04: AI image of Dr. Osorio in his office. File: images/tratamientos-personalizados.jpg -->
         <article class="service service--portrait">
-          <div class="bg bg--portrait"><img src="assets/img/card-planes.jpg" alt="Mujer al aire libre, con aspecto de bienestar" style="object-position: 50% center"></div>
+          <div class="bg bg--portrait"><img src="assets/img/r-80ea21fd.jpg" alt="Cuaderno de notas en consulta" style="object-position: 50% 55%"></div>
           <div class="num">04</div>
           <h3>Tratamientos Personalizados</h3>
           <p>Si tu caso no encaja en ninguno de los anteriores, escríbeme.</p>
@@ -566,10 +565,10 @@
           <!--
             VIDEO PLACEHOLDER: when the video is ready, replace everything inside <div class="video-frame"> with ONE of these:
             YouTube:  <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Testimonios de pacientes" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-            Own file: <video src="videos/testimonios.mp4" poster="assets/img/video-maria.jpg" controls playsinline preload="metadata"></video>
+            Own file: <video src="videos/testimonios.mp4" poster="assets/img/video-maria-2.jpg" controls playsinline preload="metadata"></video>
           -->
           <div class="video-frame">
-            <img class="poster" src="assets/img/video-maria.jpg" alt="" width="1280" height="720" loading="lazy">
+            <img class="poster" src="assets/img/video-maria-2.jpg" alt="" width="1280" height="720" loading="lazy">
             <button class="play" type="button" aria-label="Reproducir el video: María y su transformación">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
             </button>
@@ -625,16 +624,18 @@
             <p class="eyebrow">Terapia capilar</p>
             <h3>¿Por qué el shampoo anticaída no te está funcionando?</h3>
             <p>Un mismo producto puede ayudarle a una persona y no hacer nada por otra. La diferencia empieza por entender qué tipo de caída tienes antes de elegir un tratamiento.</p>
-            <span class="soon">Próximamente</span>
+            <div class="meta">12 Oct 2026 · 8 min</div>
+            <a class="more" href="blog-shampoo-anticaida.html">Leer el artículo →</a>
           </div>
         </article>
         <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
           <div class="slide-img"><img src="assets/img/blog-estetica.jpg" alt="Paciente recibiendo un tratamiento estético facial" style="object-position: center 40%" loading="lazy"></div>
           <div class="slide-txt">
             <p class="eyebrow">Medicina estética</p>
-            <h3>Lo que debería pasar antes de tu primer procedimiento estético</h3>
-            <p>Elegir un procedimiento por lo que se ve en redes no es lo mismo que elegirlo después de una valoración. La diferencia empieza en entender qué quieres lograr y qué necesita tu piel.</p>
-            <span class="soon">Próximamente</span>
+            <h3>¿Cómo elegir el procedimiento estético indicado para mí?</h3>
+            <p>Aunque varios procedimientos prometen resultados similares, no todos funcionan de la misma manera. De hecho, dos personas pueden querer mejorar exactamente lo mismo y necesitar tratamientos completamente diferentes.</p>
+            <div class="meta">12 Oct 2026 · 5 min</div>
+            <a class="more" href="blog-elegir-procedimiento-estetico.html">Leer el artículo →</a>
           </div>
         </article>
           </div>

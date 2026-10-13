@@ -51,6 +51,10 @@
 .fig-info { max-width: 40rem; margin-inline: auto; }       /* la infografía se muestra entera, sin recortar */
 .fig-info .shot { border-radius: 20px; aspect-ratio: 1 / 1; }
 
+/* foto vertical: estrecha y centrada en la columna, para no recortarla a lo ancho */
+.fig-port .shot { aspect-ratio: 3 / 4; max-width: 24rem; margin-inline: auto; }
+.fig-port figcaption { text-align: center; }
+
 /* ---------- el muro de suscripción ----------
    Lo que hay detrás NO se envía al navegador: las líneas borrosas son
    decoración, no texto recortado. */
@@ -71,6 +75,15 @@
 .post-body .gate-card p:not(.eyebrow):not(.fine) { color: #b7c7d6; font-size: 15px; line-height: 1.7; max-width: 42ch; margin: 16px auto 0; }
 .post-body .gate-card .btn { margin-top: 28px; }
 .post-body .gate-card .fine { font-family: var(--font-mono); font-size: 10.5px; line-height: 1.5; letter-spacing: .15em; text-transform: uppercase; color: #8fa6ba; margin-top: 20px; }
+
+/* lista de tratamientos: nombre en título, descripción debajo, separados por líneas finas */
+.post-body .trat { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid rgba(18,32,51,.1); }
+.post-body .trat li { padding: 20px 0; border-bottom: 1px solid rgba(18,32,51,.1); }
+.post-body .trat b { display: block; margin-bottom: 6px; font-family: var(--font-head); font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -.02em; color: var(--ink); }
+.post-body .trat span { display: block; font-size: 16px; line-height: 1.8; color: var(--text); }
+
+/* aviso legal bajo el muro: pequeño, centrado y legible (5.9:1) */
+.post-body .aviso { max-width: 40rem; margin: 26px auto 0; font-size: 13px; line-height: 1.6; text-align: center; color: #5b6775; }
 
 /* ---------- firma ---------- */
 .by { max-width: 960px; margin: 22px auto 0; padding: clamp(26px, 3.6vw, 40px); background: var(--panel); border-radius: var(--radius-lg);
